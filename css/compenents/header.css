@@ -1,0 +1,30 @@
+.header-container {
+    background-color: var(--clr1);
+    width: 100vw;
+    height: 4.375em;
+
+}
+
+.logo-img {
+    height: 3vh;
+}
+
+.header-container button {
+    color: white;
+    border: none;
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header-container button:hover {
+    color: black;
+    box-shadow: inset 0px -1px 0px #000;
+
+}
+
+
+.header-container .main-layout {
+
+    justify-content: space-between;
+}

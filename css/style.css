@@ -1,0 +1,18 @@
+/* SETUP */
+@import 'setup/vars.css';
+@import 'setup/typography.css';
+
+/* BASE */
+@import 'basic/base.css';
+@import 'basic/layout.css';
+@import 'basic/helpers.css';
+
+/* COMPONENTS */
+@import 'compenents/header.css';
+@import 'compenents/search-bar.css';
+@import 'compenents/gallery-container.css';
+@import 'compenents/main-content.css';
+@import 'compenents/footer.css';
+
+/* MEDIA QUERIES */
+@import 'mq/mq.css'

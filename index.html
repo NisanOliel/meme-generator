@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Meme Generator</title>
+</head>
+
+<body onload="init()">
+    <header>
+        <div class="header-container">
+            <div class="header-container main-layout">
+                <div class="logo"><img class="logo-img" src="LOGO/LOGO.png" alt=""></div>
+                <div class="nav-bar">
+                    <button>Gallery</button>
+                    <button>Memes</button>
+                    <button>About</button>
+                </div>
+            </div>
+
+            <main>
+                <div class="search-container">
+                    <div class="search-container main-layout">
+                        <input type="text" name="" placeholder="Enter search keyword">
+                        kkkk
+                    </div>
+                </div>
+
+                <div class="gallery-container">
+                    <div class="gallery-container main-layout">
+
+                    </div>
+                </div>
+
+                <!-- ----------------- -->
+                <canvas id="canvas" width="400" height="400"></canvas>
+                <div class="control">
+                    <label for="text">Text</label>
+                    <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text" placeholder="text">
+                </div>
+
+
+            </main>
+
+        </div>
+    </header>
+    <script src="js/controllers/meme-controller.js"></script>
+    <script src="js/controllers/galleryController.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/controller.js"></script>
+
+</body>
+
+</html>
