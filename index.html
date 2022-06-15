@@ -41,14 +41,15 @@
                     <div class="control">
                         <label for="text">Text</label>
                         <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text"
-                            placeholder="text">
+                            placeholder="Type here">
                         <input oninput="onInputColor(this.value)" type="color" name="line-color" id="line-color">
                         <img class="btn-editor" onclick="onFontSize(2)" src="LOGO/increase font - icon.png">
                         <img class="btn-editor" onclick="onFontSize(-2)" src="LOGO/decrease font - icon.png">
                         <img class="btn-editor" onclick="onChangeLine()"
                             src="LOGO/up-and-down-opposite-double-arrows-side-by-side.png">
 
-                        <img class="btn-editor" onclick="onSaveCanvas(this)" src="LOGO/download.png">
+                        <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
+
 
                     </div>
 

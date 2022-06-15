@@ -1,5 +1,6 @@
 'use strict'
 
+
 function renderMeme() {
     console.log('RenderMeME');
     var meme = getMeme()
@@ -14,7 +15,6 @@ function renderMeme() {
         )
     }
 }
-
 
 
 function onInputTxt(text) {
@@ -40,7 +40,7 @@ function onChangeLine() {
 }
 
 function onSaveCanvas(elLink) {
-    const data = gElCanvas.toDataURL()
+    const data = gCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'canvas'
 }
