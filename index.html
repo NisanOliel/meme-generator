@@ -15,9 +15,9 @@
             <div class="header-container main-layout">
                 <div class="logo"><img class="logo-img" src="LOGO/LOGO.png" alt=""></div>
                 <div class="nav-bar">
-                    <button>Gallery</button>
-                    <button>Memes</button>
-                    <button>About</button>
+                    <button class="nav-btn">Gallery</button>
+                    <button class="nav-btn">Memes</button>
+                    <button class="nav-btn">About</button>
                 </div>
             </div>
 
@@ -36,10 +36,22 @@
                 </div>
 
                 <!-- ----------------- -->
-                <canvas id="canvas" width="400" height="400"></canvas>
-                <div class="control">
-                    <label for="text">Text</label>
-                    <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text" placeholder="text">
+                <div class="editor" style="display:none ;">
+                    <canvas id="canvas" width="400" height="400"></canvas>
+                    <div class="control">
+                        <label for="text">Text</label>
+                        <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text"
+                            placeholder="text">
+                        <input oninput="onInputColor(this.value)" type="color" name="line-color" id="line-color">
+                        <img class="btn-editor" onclick="onFontSize(2)" src="LOGO/increase font - icon.png">
+                        <img class="btn-editor" onclick="onFontSize(-2)" src="LOGO/decrease font - icon.png">
+                        <img class="btn-editor" onclick="onChangeLine()"
+                            src="LOGO/up-and-down-opposite-double-arrows-side-by-side.png">
+
+                        <img class="btn-editor" onclick="onSaveCanvas(this)" src="LOGO/download.png">
+
+                    </div>
+
                 </div>
 
 
@@ -47,9 +59,9 @@
 
         </div>
     </header>
-    <script src="js/controllers/meme-controller.js"></script>
-    <script src="js/controllers/galleryController.js"></script>
     <script src="js/services/meme.service.js"></script>
+    <script src="js/controllers/galleryController.js"></script>
+    <script src="js/controllers/meme-controller.js"></script>
     <script src="js/controller.js"></script>
 
 </body>

@@ -5,11 +5,10 @@ var gCtx
 
 
 function init() {
-    console.log('HEYYY');
+    console.log('initt');
     gCanvas = document.getElementById('canvas')
     gCtx = gCanvas.getContext('2d')
     renderGallery()
-    renderMeme()
 
 }
 

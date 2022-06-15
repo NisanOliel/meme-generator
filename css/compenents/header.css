@@ -9,7 +9,7 @@
     height: 3vh;
 }
 
-.header-container button {
+.nav-bar .nav-btn {
     color: white;
     border: none;
     font-size: 1rem;
@@ -17,7 +17,7 @@
     cursor: pointer;
 }
 
-.header-container button:hover {
+.nav-bar .nav-btn:hover {
     color: black;
     box-shadow: inset 0px -1px 0px #000;
 
