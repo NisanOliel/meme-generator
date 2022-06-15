@@ -13,53 +13,100 @@
     <header>
         <div class="header-container">
             <div class="header-container main-layout">
-                <div class="logo"><img class="logo-img" src="LOGO/LOGO.png" alt=""></div>
+                <div class="logo"><img class="logo-img" onclick="onGallerySelcet()" src="LOGO/LOGO.png" alt=""></div>
                 <div class="nav-bar">
-                    <button class="nav-btn">Gallery</button>
+                    <button onclick="onGallerySelcet()" class="nav-btn">Gallery</button>
                     <button class="nav-btn">Memes</button>
                     <button class="nav-btn">About</button>
                 </div>
             </div>
+    </header>
 
-            <main>
-                <div class="search-container">
-                    <div class="search-container main-layout">
-                        <input type="text" name="" placeholder="Enter search keyword">
-                        kkkk
-                    </div>
-                </div>
+    <main>
+        <div class="search-container">
+            <div class="search-container main-layout">
+                <input type="text" name="" placeholder="Enter search keyword">
+                kkkk
+            </div>
+        </div>
 
-                <div class="gallery-container">
-                    <div class="gallery-container main-layout">
+        <div class="gallery-container">
+            <div class="gallery-container main-layout">
 
-                    </div>
-                </div>
-
-                <!-- ----------------- -->
-                <div class="editor" style="display:none ;">
-                    <canvas id="canvas" width="400" height="400"></canvas>
-                    <div class="control">
-                        <label for="text">Text</label>
-                        <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text"
-                            placeholder="Type here">
-                        <input oninput="onInputColor(this.value)" type="color" name="line-color" id="line-color">
-                        <img class="btn-editor" onclick="onFontSize(2)" src="LOGO/increase font - icon.png">
-                        <img class="btn-editor" onclick="onFontSize(-2)" src="LOGO/decrease font - icon.png">
-                        <img class="btn-editor" onclick="onChangeLine()"
-                            src="LOGO/up-and-down-opposite-double-arrows-side-by-side.png">
-
-                        <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
+            </div>
+        </div>
 
 
-                    </div>
 
-                </div>
+        <!-- -----------------EDITOR -->
+        <div class="editor align-center flex-center " style="display:none ;">
+            <canvas id="canvas" width="400" height="400"></canvas>
+            <div class="control flex column">
+                <label for="text">Text</label>
+                <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text" placeholder="Type here">
+                <input oninput="onInputColor(this.value)" type="color" name="line-color" id="line-color">
+                <input oninput="onInputStroke(this.value)" type="color" name="stroke-color" id="stroke-color">
+                <img class="btn-editor" onclick="onFontSize(2)" src="LOGO/increase font - icon.png">
+                <img class="btn-editor" onclick="onFontSize(-2)" src="LOGO/decrease font - icon.png">
+                <img class="btn-editor" onclick="onChangeLine()"
+                    src="LOGO/up-and-down-opposite-double-arrows-side-by-side.png">
+                <img class="btn-editor" onclick="onMoveLine(-10)" src="LOGO/Up.png">
+                <img class="btn-editor" onclick="onMoveLine(10)" src="LOGO/Down.png">
+                <img class="btn-editor" onclick="onAddLine()" src="LOGO/add.png">
+                <img class="btn-editor" onclick="onDelte()" src="LOGO/trash.png">
+
+                <select class="font-select" onchange="onSetFontFamily(this.value)">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Ariel</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="Georgia">Georgia</option>
+                </select>
+
+                <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
 
 
-            </main>
+            </div>
 
         </div>
-    </header>
+        <!-- -------------------PROFILE -->
+
+        <div class="about">
+
+            <div class="about-me main-layout" id="about-me">
+                <div class="left-side">
+                    <img src="LOGO/profile.jpg" alt="profile-photo">
+                </div>
+                <div class="right-side">
+                    <h2 class="profile-name">
+                        Nisan oliel
+                    </h2>
+                    <div class="about-content">
+                        <p>is a fictional character, one of the six main characters who </p>
+                        <p>Sprint 2 - Coding Academy MAY22</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com//" target="_blank"><img src="LOGO/linkedin-logo.png"></a>
+                        <a href="https://www.facebook.com/nisan.oliel" target="_blank"><img
+                                src="LOGO/facebook-logo.png"></a>
+                        <a href="https://github.com/NisanOliel" target="_blank"><img src="LOGO/linkedin-logo.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-content main-layout">
+            <img class="logo" src="LOGO/LOGO.png">
+            <div class="footer-txt">
+                all rights reserved 2022 &copy;
+            </div>
+        </div>
+
+    </footer>
+
+
+
     <script src="js/services/meme.service.js"></script>
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/controllers/meme-controller.js"></script>

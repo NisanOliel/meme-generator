@@ -23,13 +23,23 @@ function onInputTxt(text) {
 }
 
 function onInputColor(color) {
-    inputColor(color)
+    setColor(color)
+    renderMeme()
+
+}
+function onInputStroke(color) {
+    setStoke(color)
     renderMeme()
 
 }
 
 function onFontSize(size) {
     fontSize(size)
+    renderMeme()
+
+}
+function onMoveLine(num) {
+    moveLine(num)
     renderMeme()
 
 }
@@ -45,17 +55,36 @@ function onSaveCanvas(elLink) {
     elLink.download = 'canvas'
 }
 
+function onAddLine() {
+    addLine()
+    renderMeme()
+
+}
+
+function onDelte() {
+    if (gMeme.lines.length === 0) return
+    deleteLine()
+    renderMeme()
+
+}
+
+function onSetFontFamily(font) {
+    setFontFamily(font)
+}
 
 function drawImgMeme() {
     gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height)
 }
 
 function drawText(line) {
-    gCtx.lineWidth = 6
-    gCtx.strokeStyle = 'white'
+    var x = line.posX
+    var y = line.posY
+
+    gCtx.lineWidth = 1
+    gCtx.strokeStyle = line.stroke
     gCtx.fillStyle = line.color
-    gCtx.font = `${line.size}px Impact`
-    gCtx.fillText(line.text, 50, 50)
-    // gCtx.strokeText(line.text, 50, 50)
+    gCtx.font = `${line.size}px ${line.font}`
+    gCtx.fillText(line.text, x, y)
+    gCtx.strokeText(line.text, x, y)
 }
 

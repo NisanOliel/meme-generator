@@ -1,0 +1,23 @@
+footer {
+
+    background-color: var(--clr1);
+    width: 100%;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+footer .footer-content {
+    height: 120px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+footer .footer-content .logo {
+    height: 20px;
+}

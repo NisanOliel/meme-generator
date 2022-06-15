@@ -1,0 +1,48 @@
+.about {
+    background-color: white;
+
+}
+
+.about-me {
+    display: grid;
+    /* align-items: center; */
+    grid-template-columns: 45% 55%;
+    padding: 20px 0;
+}
+
+.about-me .left-side {
+    text-align: right;
+}
+
+.about-me .left-side img {
+    width: 25%;
+    height: 30%;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+.about-me .right-side {
+    text-align: left;
+}
+
+.about-me .right-side p {
+    margin: 0;
+}
+
+.about-me .right-side p:last-of-type {
+    margin-bottom: 35px;
+}
+
+.gallery .about-me .social-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 30px);
+    grid-template-rows: 30px;
+    gap: 10px;
+}
+
+.about-me .social-icons img {
+    width: 3%;
+    background-color: #ff7f00;
+    padding: 5px;
+    border-radius: 4px;
+}

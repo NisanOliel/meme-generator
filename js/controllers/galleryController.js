@@ -2,6 +2,7 @@
 
 var elGallery = document.querySelector('.gallery-container .main-layout')
 var elEditor = document.querySelector('.editor')
+var elAbout = document.querySelector('.about')
 
 function renderGallery() {
     console.log('HAHA');
@@ -14,9 +15,16 @@ function renderGallery() {
 
 function onImgSelect(imgId) {
 
+    elAbout.style.display = 'none'
     elGallery.style.display = 'none'
-    elEditor.style.display = 'block'
+    elEditor.style.display = 'flex'
     setImg(imgId)
     renderMeme()
+}
+
+function onGallerySelcet() {
+    elEditor.style.display = 'none'
+    elAbout.style.display = 'block'
+    elGallery.style.display = 'grid'
 }
 
