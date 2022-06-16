@@ -15,7 +15,6 @@
         height: 0;
         display: flex;
         flex-direction: column;
-        transition: 1s;
         z-index: 2;
         overflow: hidden;
     }

@@ -1,37 +1,15 @@
 'use strict'
-var nextId = 0
 var gLineIdx = 0
 var yPositon = 100
-
-
-var gImgs = [
-    { id: nextId++, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/3.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/4.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/5.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/6.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/7.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/8.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/9.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/10.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/11.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/12.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/13.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/14.jpg', keywords: ['funny', 'cat'] },
-    { id: nextId++, url: 'img/15.jpg', keywords: ['funny', 'cat'] },
-];
-
 
 var gMeme = {
     selecterId: 1,
     selectedLineIdx: 0,
     lines: [
-        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 50, font: 'Impact' },
-        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 400, font: 'Impact' },
+        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 50, font: 'Impact', isDrag: false },
+        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 400, font: 'Impact', isDrag: false },
     ]
 }
-
 
 function getMeme() {
     return gMeme
@@ -54,7 +32,8 @@ function setImg(imgId) {
 
 
 function setColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color
+    const { selectedLineIdx } = gMeme
+    gMeme.lines[selectedLineIdx].color = color
 }
 function setStoke(color) {
     gMeme.lines[gMeme.selectedLineIdx].stroke = color
@@ -65,7 +44,7 @@ function fontSize(size) {
     gMeme.lines[gMeme.selectedLineIdx].size += size
 
 }
-function moveLine(size) {
+function moveLineMove(size) {
     gMeme.lines[gMeme.selectedLineIdx].posY += size
 
 }
@@ -128,4 +107,30 @@ function setAlign(align) {
             break
     }
 
+}
+
+//Check if the click is inside the Line 
+function isLineClicked(pos) {
+    var meme = getMeme()
+    var id = 0
+    for (var i = 0; i < meme.lines.length; i++) {
+        var currLine = meme.lines[i]
+        var linePos = { x: currLine.posX - 150, y: currLine.posY - 30 }
+        if (pos.x < linePos.x + 400 && pos.y < linePos.y + 60 && pos.x > linePos.x && pos.y > linePos.y) {
+            meme.selectedLineIdx = id
+            return true
+        }
+        id++
+    }
+    return false
+}
+
+function setLineDrag(isDrag) {
+    gMeme.isDrag = isDrag
+}
+
+function moveLine(x, y) {
+    var meme = getMeme()
+    meme.lines[meme.selectedLineIdx].posX += x
+    meme.lines[meme.selectedLineIdx].posY += y
 }

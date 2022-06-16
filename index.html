@@ -10,7 +10,7 @@
     <title>Meme Generator</title>
 </head>
 
-<body onload="init()">
+<body onload="onInit()">
     <header>
         <div class="header-container">
             <div class="header-container main-layout">
@@ -84,16 +84,24 @@
                     <button onclick="onFontSize(-2)">A-</button>
                     <button onclick="onChangeLine()">⇅</button>
                     <button onclick="onAddLine()">+</button>
+                    <button class="btn" onclick="uploadImg()">
+                        <i class="fa-brands fa-facebook"></i>
+                    </button>
+                    <div class="share-container">
 
+
+                    </div>
                 </div>
 
 
-
-
                 <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
-
-
+                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
             </div>
+
+
+
+
+        </div>
 
         </div>
         <!-- -------------------PROFILE -->
@@ -136,6 +144,8 @@
 
 
     <script src="js/services/meme.service.js"></script>
+    <script src="js/services/upload.service.js"></script>
+    <script src="js/services/gallery.service.js"></script>
     <script src="js/services/utils.js"></script>
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/controllers/meme-controller.js"></script>

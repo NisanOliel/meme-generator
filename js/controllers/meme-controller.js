@@ -39,8 +39,7 @@ function onFontSize(size) {
 
 }
 function onMoveLine(num) {
-    moveLine(num)
-    // renderMoveText()
+    moveLineMove(num)
     renderMeme()
 
 }
@@ -98,11 +97,3 @@ function drawText(line) {
     gCtx.strokeText(line.text, x, y)
 }
 
-// function renderMoveText() {
-//     const line = getLine()
-//     const elInput = document.querySelector('[name="top-text"]')
-//     elInput.value = line.txt
-
-//     document.querySelector('.line-color').style.color = line.textColor
-//     document.querySelector('stroke-color').style.color = line.strokeColor
-// }

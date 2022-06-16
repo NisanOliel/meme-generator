@@ -8,7 +8,7 @@ var elMenu = document.querySelector('.menu-toggle')
 function renderGallery() {
     console.log('HAHA');
     var strHTMLs = gImgs.map(img =>
-        ` <img onclick="onImgSelect(${img.id + 1})" class="img-${img.id + 1}" src="${img.url}">`
+        ` <img onclick="onImgSelect(${img.id})" class="img-${img.id}" src="${img.url}">`
     )
 
     elGallery.innerHTML = strHTMLs.join('')
