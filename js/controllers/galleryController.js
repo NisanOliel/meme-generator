@@ -3,6 +3,7 @@
 var elGallery = document.querySelector('.gallery-container .main-layout')
 var elEditor = document.querySelector('.editor')
 var elAbout = document.querySelector('.about')
+var elMenu = document.querySelector('.menu-toggle')
 
 function renderGallery() {
     console.log('HAHA');
@@ -15,7 +16,6 @@ function renderGallery() {
 
 function onImgSelect(imgId) {
 
-    elAbout.style.display = 'none'
     elGallery.style.display = 'none'
     elEditor.style.display = 'flex'
     setImg(imgId)
@@ -24,7 +24,7 @@ function onImgSelect(imgId) {
 
 function onGallerySelcet() {
     elEditor.style.display = 'none'
-    elAbout.style.display = 'block'
+    toggleMenu(elMenu)
     elGallery.style.display = 'grid'
 }
 

@@ -3,8 +3,8 @@ footer {
     background-color: var(--clr1);
     width: 100%;
     color: white;
-    position: absolute;
-    bottom: 0;
+    display: block;
+    margin: auto;
 }
 
 

@@ -2,18 +2,17 @@
     background-color: var(--clr2);
 }
 
-.gallery-container .main-layout {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 190px;
-    gap: 15px;
-    justify-content: center;
-    width: fit-content;
-}
+
 
 .gallery-container .main-layout img {
     height: 100%;
     margin: 0 auto;
     cursor: pointer;
+    border-radius: 10%;
 
+}
+
+.gallery-container .main-layout img:hover {
+    opacity: 0.8;
+    box-shadow: 3px 9px 15px 2px #000;
 }

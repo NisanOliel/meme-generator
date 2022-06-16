@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/d8c923d17c.js" crossorigin="anonymous"></script>
     <title>Meme Generator</title>
 </head>
 
@@ -19,14 +20,19 @@
                     <button class="nav-btn">Memes</button>
                     <button class="nav-btn">About</button>
                 </div>
+                <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
+
             </div>
+
     </header>
 
     <main>
         <div class="search-container">
             <div class="search-container main-layout">
                 <input type="text" name="" placeholder="Enter search keyword">
-                kkkk
+                <div class="searh-keywords">
+                    What
+                </div>
             </div>
         </div>
 
@@ -39,28 +45,50 @@
 
 
         <!-- -----------------EDITOR -->
-        <div class="editor align-center flex-center " style="display:none ;">
-            <canvas id="canvas" width="400" height="400"></canvas>
+        <div class="editor ">
+            <canvas id="canvas" width="500" height="500"></canvas>
             <div class="control flex column">
-                <label for="text">Text</label>
-                <input oninput="onInputTxt(this.value)" type="text" name="text" id="top-text" placeholder="Type here">
-                <input oninput="onInputColor(this.value)" type="color" name="line-color" id="line-color">
-                <input oninput="onInputStroke(this.value)" type="color" name="stroke-color" id="stroke-color">
-                <img class="btn-editor" onclick="onFontSize(2)" src="LOGO/increase font - icon.png">
-                <img class="btn-editor" onclick="onFontSize(-2)" src="LOGO/decrease font - icon.png">
-                <img class="btn-editor" onclick="onChangeLine()"
-                    src="LOGO/up-and-down-opposite-double-arrows-side-by-side.png">
-                <img class="btn-editor" onclick="onMoveLine(-10)" src="LOGO/Up.png">
-                <img class="btn-editor" onclick="onMoveLine(10)" src="LOGO/Down.png">
-                <img class="btn-editor" onclick="onAddLine()" src="LOGO/add.png">
-                <img class="btn-editor" onclick="onDelte()" src="LOGO/trash.png">
+                <div class="input-editor">
+                    <input oninput="onInputTxt(this.value)" type="text" name="text" class="top-text"
+                        placeholder="Type here">
+                </div>
+                <div class="color-editor">
+                    <input oninput="onInputColor(this.value)" type="color" name="line-color" class="line-color">
+                    <input oninput="onInputStroke(this.value)" type="color" name="stroke-color" class="stroke-color">
 
-                <select class="font-select" onchange="onSetFontFamily(this.value)">
-                    <option value="Impact">Impact</option>
-                    <option value="Arial">Ariel</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="Georgia">Georgia</option>
-                </select>
+                    <select class="font-select" onchange="onSetFontFamily(this.value)">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Ariel</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="Georgia">Georgia</option>
+                    </select>
+                </div>
+                <div class="btn-arrow">
+                    <button onclick="onMoveLine(-10)">↑</button>
+                    <button onclick="onMoveLine(10)">↓</button>
+                    <button onclick="onMoveRightLeft(-10)">←</button>
+                    <button onclick="onMoveRightLeft(10)">→</button>
+
+                </div>
+
+                <div class="btn-align">
+                    <button onclick="onSetAlign('left')"><i class="fa-solid fa-align-left"></i></button>
+                    <button onclick="onSetAlign('center')"><i class="fa-solid fa-align-center"></i></button>
+                    <button onclick="onSetAlign('right')"><i class="fa-solid fa-align-right"></i></button>
+                    <button onclick="onDelte()"><i class="fa-solid fa-trash-can"></i></button>
+
+                </div>
+
+                <div class="last-button">
+                    <button onclick="onFontSize(2)">A+</button>
+                    <button onclick="onFontSize(-2)">A-</button>
+                    <button onclick="onChangeLine()">⇅</button>
+                    <button onclick="onAddLine()">+</button>
+
+                </div>
+
+
+
 
                 <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
 
@@ -70,7 +98,7 @@
         </div>
         <!-- -------------------PROFILE -->
 
-        <div class="about">
+        <!-- <div class="about">
 
             <div class="about-me main-layout" id="about-me">
                 <div class="left-side">
@@ -92,22 +120,23 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </main>
-    <footer>
-        <div class="footer-content main-layout">
+    <!-- <footer>
+        <div class="footer-content ">
             <img class="logo" src="LOGO/LOGO.png">
             <div class="footer-txt">
                 all rights reserved 2022 &copy;
             </div>
         </div>
 
-    </footer>
+    </footer> -->
 
 
 
     <script src="js/services/meme.service.js"></script>
+    <script src="js/services/utils.js"></script>
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/controllers/meme-controller.js"></script>
     <script src="js/controller.js"></script>

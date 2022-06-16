@@ -40,6 +40,12 @@ function onFontSize(size) {
 }
 function onMoveLine(num) {
     moveLine(num)
+    // renderMoveText()
+    renderMeme()
+
+}
+function onMoveRightLeft(num) {
+    moveLineRightLeft(num)
     renderMeme()
 
 }
@@ -72,6 +78,11 @@ function onSetFontFamily(font) {
     setFontFamily(font)
 }
 
+function onSetAlign(align) {
+    setAlign(align)
+    renderMeme()
+}
+
 function drawImgMeme() {
     gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height)
 }
@@ -79,8 +90,7 @@ function drawImgMeme() {
 function drawText(line) {
     var x = line.posX
     var y = line.posY
-
-    gCtx.lineWidth = 1
+    gCtx.lineWidth = 1.2
     gCtx.strokeStyle = line.stroke
     gCtx.fillStyle = line.color
     gCtx.font = `${line.size}px ${line.font}`
@@ -88,3 +98,11 @@ function drawText(line) {
     gCtx.strokeText(line.text, x, y)
 }
 
+// function renderMoveText() {
+//     const line = getLine()
+//     const elInput = document.querySelector('[name="top-text"]')
+//     elInput.value = line.txt
+
+//     document.querySelector('.line-color').style.color = line.textColor
+//     document.querySelector('stroke-color').style.color = line.strokeColor
+// }

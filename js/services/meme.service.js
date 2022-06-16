@@ -11,6 +11,15 @@ var gImgs = [
     { id: nextId++, url: 'img/4.jpg', keywords: ['funny', 'cat'] },
     { id: nextId++, url: 'img/5.jpg', keywords: ['funny', 'cat'] },
     { id: nextId++, url: 'img/6.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/7.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/8.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/9.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/10.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/11.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/12.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/13.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/14.jpg', keywords: ['funny', 'cat'] },
+    { id: nextId++, url: 'img/15.jpg', keywords: ['funny', 'cat'] },
 ];
 
 
@@ -18,13 +27,18 @@ var gMeme = {
     selecterId: 1,
     selectedLineIdx: 0,
     lines: [
-        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'black', posX: 20, posY: 50, font: 'Impact' },
+        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 50, font: 'Impact' },
+        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 400, font: 'Impact' },
     ]
 }
 
 
 function getMeme() {
     return gMeme
+}
+
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
 }
 
 function setLineTxt(text) {
@@ -53,6 +67,10 @@ function fontSize(size) {
 }
 function moveLine(size) {
     gMeme.lines[gMeme.selectedLineIdx].posY += size
+
+}
+function moveLineRightLeft(size) {
+    gMeme.lines[gMeme.selectedLineIdx].posX += size
 
 }
 
@@ -86,5 +104,28 @@ function changeLines() {
 
 function setFontFamily(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font
+
+}
+
+function setAlign(align) {
+    gMeme.lines[gMeme.selectedLineIdx].align = align
+
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    console.log(line.align)
+    switch (line.align) {
+        case 'left':
+            line.posX = 10
+            break
+
+        case 'center':
+            console.log('gCanvas.width:', gCanvas.width)
+            console.log('line.width:', line.width)
+            line.posX = 150
+            break
+
+        case 'right':
+            line.posX = 300
+            break
+    }
 
 }
