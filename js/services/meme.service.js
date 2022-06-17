@@ -1,14 +1,29 @@
 'use strict'
+
+const STORAGE_KEY = 'savedMemesDB'
 var gLineIdx = 0
 var yPositon = 100
+
+var gSavedMemes = []
 
 var gMeme = {
     selecterId: 1,
     selectedLineIdx: 0,
     lines: [
-        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 50, font: 'Impact', isDrag: false },
-        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 400, font: 'Impact', isDrag: false },
+        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 50, font: 'Impact', isDrag: false, isSaved: false },
+        { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 400, font: 'Impact', isDrag: false, isSaved: false },
     ]
+}
+
+function resetMeme() {
+    gMeme = {
+        selecterId: 1,
+        selectedLineIdx: 0,
+        lines: [
+            { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 50, font: 'Impact', isDrag: false, isSaved: false },
+            { text: 'Enter text here', size: 30, align: 'left', color: 'red,', stroke: 'white', posX: 20, posY: 400, font: 'Impact', isDrag: false, isSaved: false },
+        ]
+    }
 }
 
 function getMeme() {
@@ -32,8 +47,7 @@ function setImg(imgId) {
 
 
 function setColor(color) {
-    const { selectedLineIdx } = gMeme
-    gMeme.lines[selectedLineIdx].color = color
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 function setStoke(color) {
     gMeme.lines[gMeme.selectedLineIdx].stroke = color
@@ -57,7 +71,7 @@ function addLine() {
     var line =
     {
         text: 'Enter text here', size: 30, align: 'left', color: 'red,',
-        stroke: 'black', posX: 20, posY: yPositon
+        stroke: 'black', posX: 20, posY: yPositon, font: 'Impact', isDrag: false, isSaved: false
     }
     gMeme.lines.push(line)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -79,6 +93,8 @@ function changeLines() {
         gLineIdx = 0
     }
     gMeme.selectedLineIdx = gLineIdx
+
+
 }
 
 function setFontFamily(font) {
@@ -133,4 +149,10 @@ function moveLine(x, y) {
     var meme = getMeme()
     meme.lines[meme.selectedLineIdx].posX += x
     meme.lines[meme.selectedLineIdx].posY += y
+}
+
+function saveMeme() {
+    gMeme.isSaved = true
+    gSavedMemes.push(gMeme)
+    saveToStorage(STORAGE_KEY, gSavedMemes)
 }

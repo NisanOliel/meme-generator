@@ -75,12 +75,20 @@ function onDelte() {
 
 function onSetFontFamily(font) {
     setFontFamily(font)
+    renderMeme()
+
 }
 
 function onSetAlign(align) {
     setAlign(align)
     renderMeme()
 }
+
+function onSaveMeme() {
+    saveMeme()
+
+}
+
 
 function drawImgMeme() {
     gCtx.drawImage(gImg, 0, 0, gCanvas.width, gCanvas.height)
@@ -92,8 +100,9 @@ function drawText(line) {
     gCtx.lineWidth = 1.2
     gCtx.strokeStyle = line.stroke
     gCtx.fillStyle = line.color
+    var width = gCtx.measureText(line.text)
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.fillText(line.text, x, y)
     gCtx.strokeText(line.text, x, y)
-}
 
+}

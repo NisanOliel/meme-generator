@@ -17,7 +17,7 @@
                 <div class="logo"><img class="logo-img" onclick="onGallerySelcet()" src="LOGO/LOGO.png" alt=""></div>
                 <div class="nav-bar">
                     <button onclick="onGallerySelcet()" class="nav-btn">Gallery</button>
-                    <button class="nav-btn">Memes</button>
+                    <button onclick="renderSaved()" class="nav-btn">Memes</button>
                     <button class="nav-btn">About</button>
                 </div>
                 <button onclick="toggleMenu(this)" class="menu-toggle">☰</button>
@@ -29,9 +29,26 @@
     <main>
         <div class="search-container">
             <div class="search-container main-layout">
-                <input type="text" name="" placeholder="Enter search keyword">
+                <div class="input-container">
+                    <input oninput="onSetFilterText(this.value)" type="text" list="search-list"
+                        placeholder="Search here...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <datalist id="search-list">
+                        <option value="Politician">
+                        <option value="Cat">
+                        <option value="Dog">
+                        <option value="Baby">
+                        <option value="Men">
+                        <option value="Funny">
+                </div>
+
                 <div class="searh-keywords">
-                    What
+                    <button style="font-size: 10px ;" onclick="onKeyFilterClick(this,'Politician')">Politician</button>
+                    <button style="font-size: 12px ;" onclick="onKeyFilterClick(this,'Cat')">Cat</button>
+                    <button style="font-size: 14px ;" onclick="onKeyFilterClick(this,'Dog')">Dog</button>
+                    <button style="font-size: 20px ;" onclick="onKeyFilterClick(this,'Baby')">Baby</button>
+                    <button style="font-size: 18px ;" onclick="onKeyFilterClick(this,'Men')">Men</button>
+                    <button style="font-size: 16px ;" onclick="onKeyFilterClick(this,'Funny')">Funny</button>
                 </div>
             </div>
         </div>
@@ -46,7 +63,7 @@
 
         <!-- -----------------EDITOR -->
         <div class="editor ">
-            <canvas id="canvas" width="500" height="500"></canvas>
+            <canvas class="canvas-container" id="canvas" width="500" height="500"></canvas>
             <div class="control flex column">
                 <div class="input-editor">
                     <input oninput="onInputTxt(this.value)" type="text" name="text" class="top-text"
@@ -96,6 +113,7 @@
 
                 <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
                 <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+                <button style="width: 3em ;" onclick="onSaveMeme()">Save</button>
             </div>
 
 
@@ -147,6 +165,7 @@
     <script src="js/services/upload.service.js"></script>
     <script src="js/services/gallery.service.js"></script>
     <script src="js/services/utils.js"></script>
+    <script src="js/services/storage-service.js"></script>
     <script src="js/controllers/galleryController.js"></script>
     <script src="js/controllers/meme-controller.js"></script>
     <script src="js/controller.js"></script>

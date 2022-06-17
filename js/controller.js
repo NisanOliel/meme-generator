@@ -13,6 +13,7 @@ function onInit() {
     addListeners()
     renderGallery()
     getMeme()
+    loadFromStorage(STORAGE_KEY)
 
 }
 
@@ -63,6 +64,11 @@ function onUp() {
     setLineDrag(false)
     document.body.style.cursor = 'grab'
 }
+// function resizeCanvas() {
+//     const elContainer = document.querySelector('.canvas-container')
+//     gCanvas.width = elContainer.offsetWidth
+//     gCanvas.height = elContainer.offsetHeight
+// }
 
 
 function getEvPos(ev) {

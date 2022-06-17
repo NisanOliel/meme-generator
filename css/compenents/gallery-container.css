@@ -1,5 +1,6 @@
 .gallery-container {
     background-color: var(--clr2);
+    padding-top: 5px;
 }
 
 
