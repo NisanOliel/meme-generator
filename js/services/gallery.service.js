@@ -29,10 +29,7 @@ var gImgs = [
 function renderGallery() {
     console.log('rendergaller')
     var imgs = gImgs
-    // console.log('gFilterBy:', gFilterBy)
     if (gFilterBy) imgs = imgs.filter(img => img.keywords.includes(gFilterBy))
-    // console.log('imgs:', imgs)
-
 
     var strHTMLs = imgs.map(img =>
         ` <img onclick="onImgSelect(${img.id})" class="img-${img.id}" src="${img.url}">`
@@ -43,11 +40,12 @@ function renderGallery() {
 
 
 function renderSaved() {
-    console.log('Saved')
+    var elEditor = document.querySelector('.editor')
+    elEditor.style = 'none'
+    var elGallery = document.querySelector('.gallery-container .main-layout')
+    elGallery.style = 'grid'
+
     var imgs = gSavedMemes
-    console.log('imgs:', imgs)
-
-
     var strHTMLs = imgs.map(img =>
         ` <img onclick="onSavedSelect(${img.selecterId})" class="img-${img.selecterId}" src="${`img/${img.selecterId}.jpg`}">`
     )

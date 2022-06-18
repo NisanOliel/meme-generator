@@ -7,7 +7,6 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 
 function onInit() {
-    console.log('INITTT');
     gCanvas = document.getElementById('canvas')
     gCtx = gCanvas.getContext('2d')
     addListeners()

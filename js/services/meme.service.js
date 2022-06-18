@@ -93,6 +93,7 @@ function changeLines() {
         gLineIdx = 0
     }
     gMeme.selectedLineIdx = gLineIdx
+    updateInput()
 
 
 }
@@ -125,8 +126,12 @@ function setAlign(align) {
 
 }
 
+
+
+
 //Check if the click is inside the Line 
 function isLineClicked(pos) {
+    updateInput()
     var meme = getMeme()
     var id = 0
     for (var i = 0; i < meme.lines.length; i++) {
@@ -155,4 +160,10 @@ function saveMeme() {
     gMeme.isSaved = true
     gSavedMemes.push(gMeme)
     saveToStorage(STORAGE_KEY, gSavedMemes)
+}
+
+function updateInput() {
+    const idx = gMeme.selectedLineIdx
+    const line = gMeme.lines[idx]
+    document.querySelector('[name=text]').value = line.text
 }

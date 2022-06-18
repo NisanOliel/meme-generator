@@ -11,6 +11,7 @@ function renderMeme() {
         meme.lines.forEach(line => {
             drawText(line)
 
+
         }
         )
     }
@@ -20,6 +21,7 @@ function renderMeme() {
 function onInputTxt(text) {
     setLineTxt(text)
     renderMeme()
+
 }
 
 function onInputColor(color) {
