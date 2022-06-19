@@ -5,6 +5,7 @@ var elEditor = document.querySelector('.editor')
 var elAbout = document.querySelector('.about')
 var elMenu = document.querySelector('.menu-toggle')
 var elSearch = document.querySelector('.search-container')
+var elUpload = document.querySelector('.upload-img')
 
 var keySize = {
     'Politician': 10,
@@ -20,6 +21,7 @@ function onImgSelect(imgId) {
     elSearch.style.display = 'none'
     elGallery.style.display = 'none'
     elEditor.style.display = 'flex'
+    elUpload.style.display = 'none'
     resetMeme()
     document.querySelector('.top-text').value = ''
     setImg(imgId)
@@ -30,6 +32,7 @@ function onSavedSelect(imgId) {
     elSearch.style.display = 'none'
     elGallery.style.display = 'none'
     elEditor.style.display = 'flex'
+
     // resetMeme()
     // document.querySelector('.top-text').value = ''
     setImg(imgId)
@@ -45,6 +48,8 @@ function onGallerySelcet() {
     elSearch.style.display = 'block'
     toggleMenu(elMenu)
     elGallery.style.display = 'grid'
+    elUpload.style.display = 'block'
+
 }
 
 function onSetFilterText(txt) {

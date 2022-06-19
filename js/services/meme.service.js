@@ -167,3 +167,4 @@ function updateInput() {
     const line = gMeme.lines[idx]
     document.querySelector('[name=text]').value = line.text
 }
+

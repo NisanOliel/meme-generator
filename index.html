@@ -16,6 +16,7 @@
             <div class="header-container main-layout">
                 <div class="logo"><img class="logo-img" onclick="onGallerySelcet()" src="LOGO/LOGO.png" alt=""></div>
                 <div class="nav-bar">
+
                     <button onclick="onGallerySelcet()" class="nav-btn">Gallery</button>
                     <button onclick="renderSaved()" class="nav-btn">Memes</button>
                     <button class="nav-btn">About</button>
@@ -56,6 +57,15 @@
         <!-----------Gallery ----------->
 
         <div class="gallery-container">
+            <div class="upload-img ">
+                <label for="inputTag">
+                    <div class="upload-img">
+                        <i class="fa-solid fa-upload"></i>
+                        Upload
+                        <input onchange="onImgInput(event)" style="display: none;" id="inputTag" type="file" />
+                    </div>
+                </label>
+            </div>
             <div class="gallery-container main-layout">
 
             </div>
@@ -113,8 +123,7 @@
                 </div>
 
 
-                <a href="#" onclick="onSaveCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
-                <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+                <a href="#" onclick="onDownloadCanvas(this)"> <img src="LOGO/download.png" height="30" /></a>
                 <button style="width: 3em ;" onclick="onSaveMeme()">Save</button>
             </div>
 

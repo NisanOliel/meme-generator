@@ -60,6 +60,11 @@ function loadImageFromInput(ev, onImageReady) {
 
 
 function renderImg(img) {
-    //Draw the img on the canvas
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    const url = img.src
+    const id = 0
+    const image = { id, url, keywords: ['uploadImg'] }
+    gImgs.unshift(image)
+    renderGallery()
+
 }
+

@@ -5,15 +5,16 @@ function renderMeme() {
     console.log('RenderMeME');
     var meme = getMeme()
     var img = new Image()
-    img.src = `img/${meme.selecterId}.jpg`
+    // img.src = `img/${meme.selecterId}.jpg`
+    img.src = gImgs[meme.selecterId].url
     img.onload = function () {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         meme.lines.forEach(line => {
             drawText(line)
 
-
         }
         )
+        drawRect(gMeme.lines[gMeme.selectedLineIdx])
     }
 }
 
@@ -56,7 +57,7 @@ function onChangeLine() {
     renderMeme()
 }
 
-function onSaveCanvas(elLink) {
+function onDownloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'canvas'
@@ -102,9 +103,19 @@ function drawText(line) {
     gCtx.lineWidth = 1.2
     gCtx.strokeStyle = line.stroke
     gCtx.fillStyle = line.color
-    var width = gCtx.measureText(line.text)
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.fillText(line.text, x, y)
     gCtx.strokeText(line.text, x, y)
 
+}
+
+
+function drawRect(line) {
+    var txtWid = gCtx.measureText(line.text).width
+    var x = line.posX
+    var y = line.posY
+    gCtx.beginPath()
+    gCtx.rect(x, y + 5, txtWid * 2, -line.size)
+    gCtx.strokeStyle = "black"
+    gCtx.stroke()
 }
